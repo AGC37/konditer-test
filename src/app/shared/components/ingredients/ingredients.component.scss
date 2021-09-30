@@ -1,0 +1,61 @@
+.container {
+  max-width: 800px;
+  transform: none;
+}
+.text-list, .text-list li {
+    list-style: none;
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+.text-list-line li {
+    justify-content: space-between;
+    height: 26.5px;
+}
+.text-list-bold li, .text-list-line li {
+    display: flex;
+    margin-bottom: 5px;
+}
+.text-list li {
+    transition: all .5s;
+}
+.text-list, .text-list li {
+    list-style: none;
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+.text-list-line li b {
+    margin-right: 5px;
+    white-space: nowrap;
+}
+.text-list-line li hr {
+    width: 100%;
+    margin-top: 16px;
+    border-top: 1px dotted;
+    background: none;
+    opacity: .8;
+}
+.step-item:before, .menu-inner li:before, .bg-color, body main > section.bg-color, .menu-top-logo > .container:before, body hr:not([class*=space]) {
+    background-color: #c3dff7;
+}
+hr:not([class*=space]) {
+    margin: 60px 0;
+}
+hr:not([class*=space]) {
+    height: 1px;
+    border: none;
+    background: #dadada;
+    margin: 30px 0;
+}
+.text-list-line li p {
+    margin: 0 5px;
+    white-space: nowrap;
+    overflow: visible;
+}
+hr.space-sm {
+  height: 30px;
+  border: none;
+  clear: both;
+  margin: 0;
+}

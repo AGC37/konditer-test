@@ -1,0 +1,13 @@
+<nav class="navbar main">
+  <h1>
+    <a routerLink="/" style="color: #0b0b0b">Konditer</a>
+  </h1>
+  <ul>
+    <li routerLinkActive="active">
+      <a [routerLink]="['/', 'create']" style="color: grey">Добавить рецепт</a>
+    </li>
+  </ul>
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
