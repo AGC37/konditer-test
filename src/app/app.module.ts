@@ -11,6 +11,7 @@ import { IngredientsComponent } from './shared/components/ingredients/ingredient
 import { CreatePageComponent } from './shared/components/create-page/create-page.component';
 import { EditPageComponent } from './shared/components/edit-page/edit-page.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
