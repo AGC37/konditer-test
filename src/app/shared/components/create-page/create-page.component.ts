@@ -8,22 +8,26 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class CreatePageComponent implements OnInit {
 
-  form?: FormGroup;
-
-  constructor() { }
-
-  ngOnInit(): void {
-    this.form = new FormGroup({
+  form = new FormGroup({
       title: new FormControl(null, Validators.required),
       text: new FormControl(null, Validators.required),
       author: new FormControl(null, Validators.required),
     })
+
+  constructor() { }
+
+  ngOnInit(): void {
+
   }
 
   submit() {
     if (this.form?.invalid) {
       return
     }
+  }
+
+  formGet(val) {
+    return this.form.get(val)
   }
 
 }
