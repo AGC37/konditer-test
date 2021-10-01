@@ -16,6 +16,9 @@ const routes: Routes = [
       {path: 'post/:id/edit', component: EditPageComponent}
 
     ]
+  },
+  {
+    path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
   }
 ];
 
