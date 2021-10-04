@@ -5,16 +5,15 @@
         <span>30</span>
         <span> сен 2021</span>
       </div>
-      <img src="http://via.placeholder.com/800x600" alt="" style="max-width: 388px; width: 388px; margin-left: -88px; display: block;">
+      <img src="{{post.photo}}" alt="" style="max-width: 388px; width: 388px; margin-left: -88px; display: block;">
     </a>
     <div class="caption">
-      <h2>Rolling Stones and Stevie Wonder Mash Up Uptight and Satisfaction</h2>
+      <h2>{{post.title}}</h2>
       <ul class="icon-list icon-list-horizontal">
         <li><a href="#">Категория</a></li>
       </ul>
       <p>
-        <a [routerLink]="['/post', 7549357]">Lorem ipsum dolor sitamet consectetur adipisicing elito sed do eiusmod tempore.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugia.</a>
+        <a [routerLink]="['/post', post.slug]">{{post.content | slice:0:150 }}</a>
       </p>
     </div>
   </div>

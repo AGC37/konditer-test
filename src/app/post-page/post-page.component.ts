@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {posts, Post} from "../fake-db/posts";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-post-page',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostPageComponent implements OnInit {
 
-  constructor() { }
+  post: Post | undefined;
 
-  ngOnInit(): void {
+  constructor(
+    private route: ActivatedRoute
+  ) { }
+
+  ngOnInit(){
+    const routeParams = this.route.snapshot.paramMap;
+    const postIdFromRoute = String(routeParams.get('postSlug'));
+    this.post = posts.find(post => post.slug === postIdFromRoute);
   }
 
 }

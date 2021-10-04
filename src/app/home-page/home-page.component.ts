@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { posts } from '../fake-db/posts';
 
 @Component({
   selector: 'app-home-page',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
+
+  posts = posts;
 
   constructor() { }
 

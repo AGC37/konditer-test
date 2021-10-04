@@ -1,7 +1,8 @@
 <div class="posts">
   <div class="grid-list">
-    <app-post></app-post>
-    <app-post></app-post>
-    <app-post></app-post>
+    <app-post *ngFor="let post of posts" [post]="post">
+
+    </app-post>
+
   </div>
 </div>
