@@ -17,7 +17,7 @@ export class PostPageComponent implements OnInit {
 
   ngOnInit(){
     const routeParams = this.route.snapshot.paramMap;
-    const postIdFromRoute = String(routeParams.get('postSlug'));
+    const postIdFromRoute = String(routeParams.get('id'));
     this.post = posts.find(post => post.slug === postIdFromRoute);
   }
 
