@@ -1,47 +1,156 @@
+<!--<p>-->
+<!--  <mat-form-field appearance="outline">-->
+<!--    <mat-label>Название поста</mat-label>-->
+<!--    <input matInput placeholder="Placeholder">-->
+<!--    <mat-hint>*Обязательное поле</mat-hint>-->
+<!--  </mat-form-field>-->
+<!--</p>-->
+
+
+
+<!--<form [formGroup]="form" (ngSubmit)="submit()">-->
+<!--  <h1>Новый рецепт</h1>-->
+
+<!--  <p>-->
+<!--  <mat-form-field appearance="outline" class="field-form" [ngClass]="{invalid: formGet('title').touched && formGet('title').invalid}">-->
+<!--    <mat-label>Название поста</mat-label>-->
+<!--    <input id="title" matInput formControlName="title">-->
+<!--    <mat-hint *ngIf="formGet('title').errors">Введите название рецепта</mat-hint>-->
+<!--  </mat-form-field>-->
+<!--</p>-->
+
+<!--  <div-->
+<!--    class="form-control"-->
+<!--    [ngClass]="{invalid: formGet('title').touched && formGet('title').invalid}"-->
+<!--  >-->
+<!--    <label for="title">Название рецепта:</label>-->
+<!--    <input id="tit" type="text" formControlName="title">-->
+<!--    <div-->
+<!--      *ngIf="formGet('title').touched && formGet('title').invalid"-->
+<!--      class="validation"-->
+<!--    >-->
+<!--      <small *ngIf="formGet('title').errors">-->
+<!--        Введите название рецепта-->
+<!--      </small>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div class="form-control">-->
+<!--    <label>Рецепт:</label>-->
+<!--    <quill-editor></quill-editor>-->
+
+<!--  </div>-->
+
+<!--  <div-->
+<!--    class="form-control"-->
+<!--    [ngClass]="{invalid: formGet('author').touched && formGet('author').invalid}"-->
+<!--  >-->
+<!--    <label for="author">Автор рецепта:</label>-->
+<!--    <input id="author" type="text" formControlName="author">-->
+<!--    <div-->
+<!--      *ngIf="formGet('author').touched && formGet('author').invalid"-->
+<!--      class="validation"-->
+<!--    >-->
+<!--      <small *ngIf="formGet('author').errors.required">-->
+<!--        Введите автора рецепта-->
+<!--      </small>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <button-->
+<!--    type="submit"-->
+<!--    class="btn btn-block btn-dark"-->
+<!--    [disabled]="form.invalid"-->
+<!--  >Создать</button>-->
+<!--</form>-->
+
+
 <form [formGroup]="form" (ngSubmit)="submit()">
-  <h1>Новый рецепт</h1>
+  <div fxLayout="row" ngxSplit="row">
+    <div fxFlex="60%" ngxSplitArea class="box-form">
+      <mat-form-field appearance="outline" class="field-form">
+        <mat-label>Название поста</mat-label>
+        <input matInput formControlName="title" (input)="appTranslitService.onInput($event)">
+        <mat-hint *ngIf="form.controls['title'].invalid && form.controls['title'].touched" class="alert-danger">Введите название поста</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="field-form">
+        <mat-label>Описание</mat-label>
+        <textarea  matInput formControlName="description" style="height: 90px"></textarea>
+        <mat-hint *ngIf="form.controls['description'].invalid && form.controls['description'].touched" class="alert-danger">Описание должно быть не больше 355 символов</mat-hint>
+      </mat-form-field>
 
-  <div
-    class="form-control"
-    [ngClass]="{invalid: formGet('title').touched && formGet('title').invalid}"
-  >
-    <label for="title">Название рецепта:</label>
-    <input id="title" type="text" formControlName="title">
-    <div
-      *ngIf="formGet('title').touched && formGet('title').invalid"
-      class="validation"
-    >
-      <small *ngIf="formGet('title').errors">
-        Введите название рецепта
-      </small>
+      <div class="quill-field">
+        <quill-editor formControlName="text"></quill-editor>
+
+      </div>
+
+      <app-drop-zone></app-drop-zone>
+
+
+    </div>
+    <div fxFlex="15px">
+
+    </div>
+    <div fxFlex="40%" ngxSplitArea>
+      <div class="box-form">
+        <mat-slide-toggle style="margin-bottom: 0.5rem">Опубликовать</mat-slide-toggle>
+        <mat-form-field appearance="outline" class="field-form">
+          <mat-label>URL</mat-label>
+          <input matInput value="{{appTranslitService.outputValue}}" formControlName="slug">
+          <mat-hint>Введите название рецепта</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="field-form">
+          <mat-label>Meta description</mat-label>
+          <textarea matInput formControlName="meta_description"></textarea>
+          <mat-hint *ngIf="form.controls['meta_description'].invalid && form.controls['meta_description'].touched" class="alert-danger">Мета описание должно быть меньше 355 символов</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="field-form">
+          <mat-label>Автор</mat-label>
+          <input matInput formControlName="author">
+          <mat-hint *ngIf="form.controls['author'].invalid && form.controls['author'].touched" class="alert-danger">Введите название рецепта</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="field-form">
+          <mat-label>Без категории</mat-label>
+          <mat-select>
+            <mat-option>-- Без категории --</mat-option>
+            <mat-optgroup>
+              <mat-option>
+
+              </mat-option>
+            </mat-optgroup>
+          </mat-select>
+        </mat-form-field>
+        <!--      <mat-form-field class="example-chip-list" appearance="fill">-->
+        <!--  <mat-label>Favorite Fruits</mat-label>-->
+        <!--  <mat-chip-list #chipList aria-label="Fruit selection">-->
+        <!--    <mat-chip>-->
+
+        <!--      <button matChipRemove>-->
+        <!--        <mat-icon>cancel</mat-icon>-->
+        <!--      </button>-->
+        <!--    </mat-chip>-->
+        <!--    <input-->
+        <!--      placeholder="New fruit..."-->
+        <!--      >-->
+        <!--  </mat-chip-list>-->
+        <!--  <mat-autocomplete>-->
+        <!--    <mat-option >-->
+
+        <!--    </mat-option>-->
+        <!--  </mat-autocomplete>-->
+        <!--</mat-form-field>-->
+      </div>
+      <section>
+
+        <div class="button-row">
+          <button mat-raised-button class="btn-left">Просмотр</button>
+          <button mat-raised-button color="primary" type="submit">Сохранить</button>
+
+        </div>
+      </section>
     </div>
   </div>
-
-  <div class="form-control">
-    <label>Рецепт:</label>
-
-  </div>
-
-  <div
-    class="form-control"
-    [ngClass]="{invalid: formGet('author').touched && formGet('author').invalid}"
-  >
-    <label for="author">Автор рецепта:</label>
-    <input id="author" type="text" formControlName="author">
-    <div
-      *ngIf="formGet('author').touched && formGet('author').invalid"
-      class="validation"
-    >
-      <small *ngIf="formGet('author').errors.required">
-        Введите автора рецепта
-      </small>
-    </div>
-  </div>
-
-  <button
-    type="submit"
-    class="btn btn-block btn-dark"
-    [disabled]="form.invalid"
-  >Создать</button>
 </form>
 

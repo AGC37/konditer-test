@@ -16,6 +16,9 @@ import { ProductCardComponent } from './product-card/product-card.component';
 import { NavigationComponent } from './shared/components/navigation/navigation.component';
 import {MaterialModule} from "./modules/material/material.module";
 import { PreloaderComponent } from './shared/components/preloader/preloader.component';
+import { FlexLayoutModule } from '@angular/flex-layout'
+import {QuillModule} from "ngx-quill";
+import {AdminModule} from "./admin/admin.module";
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { PreloaderComponent } from './shared/components/preloader/preloader.comp
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FlexLayoutModule,
+    QuillModule,
+    AdminModule
   ],
   providers: [],
   exports: [
