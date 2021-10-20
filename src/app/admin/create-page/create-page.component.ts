@@ -12,6 +12,7 @@ import {PostsService} from "../../services/posts.service";
 export class CreatePageComponent implements OnInit {
 
   form: FormGroup;
+  external = '';
 
   constructor(public appTranslitService: AppTranslitService,
               private postsService: PostsService) { }
