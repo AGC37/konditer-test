@@ -1,1 +1,64 @@
-<p>edit-page works!</p>
+<form [formGroup]="form">
+  <div fxLayout="row" ngxSplit="row">
+    <div fxFlex="60%" ngxSplitArea class="box-form">
+      <mat-form-field appearance="outline" class="field-form">
+        <mat-label>Название поста</mat-label>
+        <input matInput formControlName="title">
+        <mat-hint *ngIf="form.controls['title'].invalid && form.controls['title'].touched" class="alert-danger">Введите название поста</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="field-form">
+        <mat-label>Описание</mat-label>
+        <textarea  matInput formControlName="description" style="height: 90px"></textarea>
+        <mat-hint *ngIf="form.controls['description'].invalid && form.controls['description'].touched" class="alert-danger">Описание должно быть не больше 355 символов</mat-hint>
+      </mat-form-field>
+
+      <div class="quill-field">
+        <quill-editor formControlName="text"></quill-editor>
+      </div>
+      <image-uploader formControlName="cover"></image-uploader>
+    </div>
+    <div fxFlex="15px">
+    </div>
+    <div fxFlex="40%" ngxSplitArea>
+      <div class="box-form">
+        <mat-slide-toggle style="margin-bottom: 0.5rem">Опубликовать</mat-slide-toggle>
+        <mat-form-field appearance="outline" class="field-form">
+          <mat-label>URL</mat-label>
+          <input matInput formControlName="slug">
+          <mat-hint>Введите название рецепта</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="field-form">
+          <mat-label>Meta description</mat-label>
+          <textarea matInput formControlName="meta_description"></textarea>
+          <mat-hint *ngIf="form.controls['meta_description'].invalid && form.controls['meta_description'].touched" class="alert-danger">Мета описание должно быть меньше 355 символов</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="field-form">
+          <mat-label>Автор</mat-label>
+          <input matInput formControlName="author">
+          <mat-hint *ngIf="form.controls['author'].invalid && form.controls['author'].touched" class="alert-danger">Введите название рецепта</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="field-form">
+          <mat-label>Без категории</mat-label>
+          <mat-select>
+            <mat-option>-- Без категории --</mat-option>
+            <mat-optgroup>
+              <mat-option>
+
+              </mat-option>
+            </mat-optgroup>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <section>
+        <div class="button-row">
+          <button mat-raised-button class="btn-left">Просмотр</button>
+          <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Сохранить</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</form>
+
+

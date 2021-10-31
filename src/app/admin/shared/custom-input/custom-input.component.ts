@@ -1,9 +1,9 @@
-import {Component, OnInit, forwardRef,} from '@angular/core';
+import {Component, forwardRef,} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms'
 
 @Component({
   selector: 'app-custom-input',
-  template: '<input [(ngModule)]="value"/>local: {{val}}',
+  template: `<input [(ngModel)]="value"/>`,
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => CustomInputComponent),
@@ -16,14 +16,14 @@ export class CustomInputComponent implements ControlValueAccessor {
   constructor() { }
 
   onChange: any = () => {}
-  onTouched: any = () => {}
+  onTouch: any = () => {}
   val = ''
 
   set value (val) {
-    if (val! == undefined && this.val! == val) {
+    if (val !== undefined && this.val !== val) {
       this.val = val
       this.onChange(val)
-      this.onTouched(val)
+      this.onTouch(val)
     }
   }
 
@@ -36,7 +36,7 @@ export class CustomInputComponent implements ControlValueAccessor {
   }
 
   registerOnTouched(fn: any){
-    this.onTouched = fn
+    this.onTouch = fn
   }
 
   ngOnInit(): void {

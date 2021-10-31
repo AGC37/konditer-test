@@ -1,71 +1,3 @@
-<!--<p>-->
-<!--  <mat-form-field appearance="outline">-->
-<!--    <mat-label>Название поста</mat-label>-->
-<!--    <input matInput placeholder="Placeholder">-->
-<!--    <mat-hint>*Обязательное поле</mat-hint>-->
-<!--  </mat-form-field>-->
-<!--</p>-->
-
-
-
-<!--<form [formGroup]="form" (ngSubmit)="submit()">-->
-<!--  <h1>Новый рецепт</h1>-->
-
-<!--  <p>-->
-<!--  <mat-form-field appearance="outline" class="field-form" [ngClass]="{invalid: formGet('title').touched && formGet('title').invalid}">-->
-<!--    <mat-label>Название поста</mat-label>-->
-<!--    <input id="title" matInput formControlName="title">-->
-<!--    <mat-hint *ngIf="formGet('title').errors">Введите название рецепта</mat-hint>-->
-<!--  </mat-form-field>-->
-<!--</p>-->
-
-<!--  <div-->
-<!--    class="form-control"-->
-<!--    [ngClass]="{invalid: formGet('title').touched && formGet('title').invalid}"-->
-<!--  >-->
-<!--    <label for="title">Название рецепта:</label>-->
-<!--    <input id="tit" type="text" formControlName="title">-->
-<!--    <div-->
-<!--      *ngIf="formGet('title').touched && formGet('title').invalid"-->
-<!--      class="validation"-->
-<!--    >-->
-<!--      <small *ngIf="formGet('title').errors">-->
-<!--        Введите название рецепта-->
-<!--      </small>-->
-<!--    </div>-->
-<!--  </div>-->
-
-<!--  <div class="form-control">-->
-<!--    <label>Рецепт:</label>-->
-<!--    <quill-editor></quill-editor>-->
-
-<!--  </div>-->
-
-<!--  <div-->
-<!--    class="form-control"-->
-<!--    [ngClass]="{invalid: formGet('author').touched && formGet('author').invalid}"-->
-<!--  >-->
-<!--    <label for="author">Автор рецепта:</label>-->
-<!--    <input id="author" type="text" formControlName="author">-->
-<!--    <div-->
-<!--      *ngIf="formGet('author').touched && formGet('author').invalid"-->
-<!--      class="validation"-->
-<!--    >-->
-<!--      <small *ngIf="formGet('author').errors.required">-->
-<!--        Введите автора рецепта-->
-<!--      </small>-->
-<!--    </div>-->
-<!--  </div>-->
-
-<!--  <button-->
-<!--    type="submit"-->
-<!--    class="btn btn-block btn-dark"-->
-<!--    [disabled]="form.invalid"-->
-<!--  >Создать</button>-->
-<!--</form>-->
-
-<!--<app-custom-input [(ngModel)]="external" name="externalVal"></app-custom-input>-->
-<!--External: {{external}}-->
 <form [formGroup]="form" (ngSubmit)="submit()">
   <div fxLayout="row" ngxSplit="row">
     <div fxFlex="60%" ngxSplitArea class="box-form">
@@ -82,15 +14,10 @@
 
       <div class="quill-field">
         <quill-editor formControlName="text"></quill-editor>
-
       </div>
-
-      <app-drop-zone></app-drop-zone>
-
-
+      <image-uploader formControlName="cover"></image-uploader>
     </div>
     <div fxFlex="15px">
-
     </div>
     <div fxFlex="40%" ngxSplitArea>
       <div class="box-form">
@@ -144,11 +71,9 @@
         <!--</mat-form-field>-->
       </div>
       <section>
-
         <div class="button-row">
           <button mat-raised-button class="btn-left">Просмотр</button>
-          <button mat-raised-button color="primary" type="submit">Сохранить</button>
-
+          <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Сохранить</button>
         </div>
       </section>
     </div>

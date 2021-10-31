@@ -35,25 +35,22 @@ export class CreatePageComponent implements OnInit {
   }
 
   submit() {
-    // if (this.form.invalid) {
-    //   console.log(this.form.invalid)
-    //   return
-    // }
+    if (this.form.invalid) {
+      console.log(this.form.invalid)
+      return
+    }
 
     const post: Post = {
       title: this.form.value.title,
       slug: this.form.value.slug,
+      content: this.form.value.text,
       photo: this.form.value.cover,
       author: this.form.value.author,
-
     }
 
     this.postsService.create(post)
+    this.form.reset()
     console.log(this.postsService.posts)
-  }
-
-  formGet(val) {
-    return this.form.get(val)
   }
 
 }

@@ -9,7 +9,7 @@ export const itemsliks = [
   {
     id: 1,
     title: 'Создать пост',
-    path: 'create-post',
+    path: 'create',
     parent: 0,
   },
   {

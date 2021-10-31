@@ -7,9 +7,16 @@
       <mat-sidenav-content>
         <app-navigation-admin></app-navigation-admin>
         <main>
-          <router-outlet></router-outlet>
+          <div class="container">
+            <router-outlet></router-outlet>
+            <div>
+              <app-list></app-list>
+            </div>
+          </div>
         </main>
       </mat-sidenav-content>
     </mat-sidenav-container>
   </div>
+
+
 </div>

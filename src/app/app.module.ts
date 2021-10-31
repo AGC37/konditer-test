@@ -47,7 +47,8 @@ import {AdminModule} from "./admin/admin.module";
   ],
   providers: [],
   exports: [
-    PreloaderComponent
+    PreloaderComponent,
+    PostComponent,
   ],
   bootstrap: [AppComponent]
 })

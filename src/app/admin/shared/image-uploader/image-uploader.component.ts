@@ -1,61 +1,100 @@
-import { Component, Input } from '@angular/core';
+import { Component, forwardRef } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'image-uploader',
   templateUrl:'./image-uploader.component.html',
   styleUrls: ['./image-uploader.component.scss'],
-  inputs:['activeColor','baseColor','overlayColor']
+  // inputs:['activeColor','baseColor','overlayColor']
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => ImageUploaderComponent),
+      multi: true
+    }
+  ]
 })
 
-export class ImageUploaderComponent {
+export class ImageUploaderComponent implements ControlValueAccessor {
 
-    activeColor: string = 'green';
-    baseColor: string = '#ccc';
-    overlayColor: string = 'rgba(255,255,255,0.5)';
+  // activeColor: string = 'green';
+  // baseColor: string = '#ccc';
+  // overlayColor: string = 'rgba(255,255,255,0.5)';
 
-    dragging: boolean = false;
-    loaded: boolean = false;
-    imageLoaded: boolean = false;
-    imageSrc: string = '';
+  dragging: boolean = false;
+  loaded: boolean = false;
+  imageLoaded: boolean = false;
+  imageSrc: any = '';
 
-    handleDragEnter() {
-        this.dragging = true;
+  onChange: any = () => {}
+  onTouch: any = () => {}
+
+  handleDragEnter() {
+    this.dragging = true;
+  }
+
+  handleDragLeave() {
+    this.dragging = false;
+  }
+
+  handleDrop(e) {
+    e.preventDefault();
+    this.dragging = false;
+    this.handleInputChange(e);
+  }
+
+  handleImageLoad() {
+    this.imageLoaded = true;
+  }
+
+  handleInputChange(e) {
+    var file = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
+    var pattern = /image-*/;
+    var reader = new FileReader();
+
+    if (!file.type.match(pattern)) {
+      alert('invalid format');
+      return;
     }
 
-    handleDragLeave() {
-        this.dragging = false;
+    this.loaded = false;
+    reader.onload = this._handleReaderLoaded.bind(this);
+    reader.readAsDataURL(file);
+  }
+
+  _handleReaderLoaded(e) {
+    var reader = e.target;
+    this.imageSrc = reader.result;
+    this.onChange(reader.result)
+    this.loaded = false;
+  }
+
+  set imageValue(imageSrc){
+    if( imageSrc !== undefined && this.imageSrc !== imageSrc){
+      this.onTouch(imageSrc)
     }
 
-    handleDrop(e) {
-        e.preventDefault();
-        this.dragging = false;
-        this.handleInputChange(e);
-    }
+  }
 
-    handleImageLoad() {
-        this.imageLoaded = true;
-    }
+  // readFile(imageSrc) {
+  //   let reader = new  FileReader()
+  //   reader.onload = (imageSrc) => {
+  //     reader = imageSrc.target
+  //     this.imageSrc = reader.result
+  //     console.log('Работает точка 30 ' + this.imageSrc)
+  //
+  //   }
+  // }
 
-    handleInputChange(e) {
-        var file = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
+  writeValue(value: any){
+    this.imageValue = value
+  }
 
-        var pattern = /image-*/;
-        var reader = new FileReader();
+  registerOnChange(fn: any){
+    this.onChange = fn
+  }
 
-        if (!file.type.match(pattern)) {
-            alert('invalid format');
-            return;
-        }
-
-        this.loaded = false;
-
-        reader.onload = this._handleReaderLoaded.bind(this);
-        reader.readAsDataURL(file);
-    }
-
-    _handleReaderLoaded(e) {
-        var reader = e.target;
-        this.imageSrc = reader.result;
-        this.loaded = true;
-    }
+  registerOnTouched(fn: any){
+    this.onTouch = fn
+  }
 }
