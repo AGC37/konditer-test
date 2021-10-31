@@ -8,24 +8,36 @@ export class PostsService {
 
   posts = posts
 
-  // fakeDbMap = new Map()
-
-  constructor() { }
-
   create(post: Post){
     this.posts.push({
       title: post.title,
       slug: post.slug,
+      content: post.content,
       photo: post.photo,
       author: post.author
     })
   }
 
-  // create(post:Post){
-  //   this.fakeDbMap.set('title', post.title)
-  //   // this.fakeDbMap.set('content', post.content)
-  //   this.fakeDbMap.set('author', post.author)
-  //   // this.fakeDbMap.set('slug', post.slug)
-  //
-  // }
+  delete(slug: string){
+    if (!window.confirm('Точно удалить?')){
+      return
+    }
+    var id = this.posts.find(s => s.slug === slug)
+    var index = posts.indexOf(id)
+
+    if (index > -1){
+      posts.splice(index, 1)
+    }
+  }
+
+  getBySlug(slug: string){
+    var id = this.posts.find(s => s.slug === slug)
+    var index = posts.indexOf(id)
+
+    if (index > -1){
+      var tmp = this.posts[index]
+    }
+    return tmp
+  }
+
 }
