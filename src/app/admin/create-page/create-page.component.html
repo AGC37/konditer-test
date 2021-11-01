@@ -11,9 +11,8 @@
         <textarea  matInput formControlName="description" style="height: 90px"></textarea>
         <mat-hint *ngIf="form.controls['description'].invalid && form.controls['description'].touched" class="alert-danger">Описание должно быть не больше 355 символов</mat-hint>
       </mat-form-field>
-
       <div class="quill-field">
-        <quill-editor formControlName="text"></quill-editor>
+        <ckeditor formControlName="text"></ckeditor>
       </div>
       <image-uploader formControlName="cover"></image-uploader>
     </div>
