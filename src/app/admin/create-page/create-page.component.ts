@@ -36,7 +36,6 @@ export class CreatePageComponent implements OnInit {
 
   submit() {
     if (this.form.invalid) {
-      console.log(this.form.invalid)
       return
     }
 
