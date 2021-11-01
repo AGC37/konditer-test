@@ -1,4 +1,4 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="submit()">
   <div fxLayout="row" ngxSplit="row">
     <div fxFlex="60%" ngxSplitArea class="box-form">
       <mat-form-field appearance="outline" class="field-form">

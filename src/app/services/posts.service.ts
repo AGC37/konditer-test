@@ -26,7 +26,7 @@ export class PostsService {
     var index = posts.indexOf(id)
 
     if (index > -1){
-      posts.splice(index, 1)
+      posts.splice(index, 1,)
     }
   }
 
@@ -38,6 +38,16 @@ export class PostsService {
       var tmp = this.posts[index]
     }
     return tmp
+  }
+
+  updatePost(post: Post){
+    let slug = post.slug
+    var id = this.posts.find(s => s.slug === slug)
+    var index = posts.indexOf(id)
+
+    if (index > -1){
+      posts.splice(index, 1, post)
+    }
   }
 
 }
