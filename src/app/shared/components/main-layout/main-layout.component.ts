@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { categoryPosts } from 'src/app/fake-db/navigation';
 
 @Component({
   selector: 'app-main-layout',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-layout.component.scss']
 })
 export class MainLayoutComponent implements OnInit {
+
+  navigation = categoryPosts
 
   constructor() { }
 

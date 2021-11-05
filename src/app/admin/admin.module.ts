@@ -17,6 +17,9 @@ import {AppModule} from "../app.module";
 import {PostComponent} from "../shared/components/post/post.component";
 import {CreatePageComponent} from "./create-page/create-page.component";
 import {EditPageComponent} from "./edit-page/edit-page.component";
+import { CreateCategoryComponent } from './create-category/create-category.component';
+import { ListCategoryComponent } from './shared/list-category/list-category.component';
+import { CategoryLayoutComponent } from './shared/category-layout/category-layout.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import {EditPageComponent} from "./edit-page/edit-page.component";
     ImageUploaderComponent,
     CustomInputComponent,
     ListComponent,
+    CreateCategoryComponent,
+    ListCategoryComponent,
+    CategoryLayoutComponent,
   ],
   imports: [
     CommonModule,
@@ -43,7 +49,8 @@ import {EditPageComponent} from "./edit-page/edit-page.component";
           {path: 'login', component: LoginPageComponent},
           {path: '', component: DashboardPageComponent},
           {path: 'create', component: CreatePageComponent},
-          {path: 'post/:id/edit', component: EditPageComponent}
+          {path: 'post/:id/edit', component: EditPageComponent},
+          {path: 'create-category', component: CategoryLayoutComponent},
         ]
       }
     ]),

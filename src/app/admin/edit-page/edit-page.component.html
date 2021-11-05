@@ -6,6 +6,7 @@
         <input matInput formControlName="title">
         <mat-hint *ngIf="form.controls['title'].invalid && form.controls['title'].touched" class="alert-danger">Введите название поста</mat-hint>
       </mat-form-field>
+      <div class="field-form"><img src="{{form.value.cover}}" alt="" class="cover"></div>
       <mat-form-field appearance="outline" class="field-form">
         <mat-label>Описание</mat-label>
         <textarea  matInput formControlName="description" style="height: 90px"></textarea>
@@ -40,14 +41,10 @@
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="field-form">
-          <mat-label>Без категории</mat-label>
+          <mat-label>Рубрика</mat-label>
           <mat-select>
             <mat-option>-- Без категории --</mat-option>
-            <mat-optgroup>
-              <mat-option>
-
-              </mat-option>
-            </mat-optgroup>
+              <mat-option *ngFor="let item of navigation" value="{{item.title}}">{{item.title}}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>

@@ -5,7 +5,8 @@
   <span><a routerLink="/">Konditer</a>
   <a routerLink="/admin">Admin App</a></span>
   <span class="example-spacer"></span>
-    <div class="navigation-desktop" *ngFor="let item of navigationAdmin">
+  <span class="navigation-desktop">
+  <div  *ngFor="let item of navigationAdmin">
     <a mat-button routerLink="{{item.path}}">{{ item.title }}</a>
   </div>
   <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
@@ -13,5 +14,5 @@
   </button>
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
     <mat-icon>share</mat-icon>
-  </button>
+  </button></span>
 </mat-toolbar>

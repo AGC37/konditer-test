@@ -17,3 +17,10 @@ a {
     display: none;
   }
 }
+.navigation-desktop {
+  display: flex;
+  margin: 0 1em 0 auto;
+  div {
+    margin-right: 1em;
+  }
+}

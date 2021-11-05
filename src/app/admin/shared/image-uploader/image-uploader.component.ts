@@ -63,17 +63,16 @@ export class ImageUploaderComponent implements ControlValueAccessor {
   }
 
   _handleReaderLoaded(e) {
-    var reader = e.target;
-    this.imageSrc = reader.result;
+    var reader = e.target
+    this.imageSrc = reader.result
     this.onChange(reader.result)
-    this.loaded = false;
+    this.onTouch(reader.result)
+    this.loaded = false
   }
 
   set imageValue(imageSrc){
     if( imageSrc !== undefined && this.imageSrc !== imageSrc){
-      this.onTouch(imageSrc)
     }
-
   }
 
   // readFile(imageSrc) {

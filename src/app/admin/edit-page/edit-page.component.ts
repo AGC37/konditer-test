@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Params} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {PostsService} from "../../services/posts.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {switchMap} from "rxjs/operators";
 import {Post} from "../../fake-db/posts";
+import {categoryPosts} from "../../fake-db/navigation";
 
 @Component({
   selector: 'app-edit-page',
@@ -13,10 +13,12 @@ import {Post} from "../../fake-db/posts";
 export class EditPageComponent implements OnInit {
 
   form: FormGroup
+  navigation = categoryPosts
 
   constructor(
     private route: ActivatedRoute,
-    private postsService: PostsService
+    private postsService: PostsService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -25,7 +27,7 @@ export class EditPageComponent implements OnInit {
       this.form = new FormGroup({
         title: new FormControl(post.title, Validators.required),
         slug: new FormControl(post.slug, Validators.required),
-        description: new FormControl(null, Validators.maxLength(355)),
+        description: new FormControl(post.description, Validators.maxLength(355)),
         meta_description: new FormControl(null, Validators.maxLength(355)),
         text: new FormControl(post.content),
         author: new FormControl(post.author, Validators.maxLength(50)),
@@ -45,6 +47,7 @@ export class EditPageComponent implements OnInit {
     const post: Post = {
       title: this.form.value.title,
       slug: this.form.value.slug,
+      description: this.form.value.description,
       content: this.form.value.text,
       photo: this.form.value.cover,
       author: this.form.value.author,
@@ -52,6 +55,7 @@ export class EditPageComponent implements OnInit {
 
     this.postsService.updatePost(post)
     this.form.reset()
+    this.router.navigate(['/admin'])
     console.log(this.postsService.posts)
   }
 

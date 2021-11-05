@@ -12,6 +12,7 @@ export class PostsService {
     this.posts.push({
       title: post.title,
       slug: post.slug,
+      description: post.description,
       content: post.content,
       photo: post.photo,
       author: post.author

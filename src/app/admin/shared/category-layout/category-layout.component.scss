@@ -1,0 +1,12 @@
+.content{
+  display: flex;
+  align-items: flex-start;
+
+  .left-content{
+    margin: 0 2.5em 0 auto;
+    width: 33%;
+  }
+  .right-content{
+    width: 67%;
+  }
+}

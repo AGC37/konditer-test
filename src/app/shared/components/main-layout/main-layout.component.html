@@ -3,12 +3,7 @@
     <a routerLink="/" style="color: #0b0b0b">Konditer</a>
   </h1>
   <ul>
-<!--    <li routerLinkActive="active">-->
-<!--      <a [routerLink]="['/', 'create']" style="color: grey">Добавить рецепт</a>-->
-<!--    </li>-->
-    <li routerLinkActive="active">
-      <a [routerLink]="['/', 'admin']" style="color: grey">Войти</a>
-    </li>
+    <li routerLinkActive="active" *ngFor="let item of navigation"><a routerLink="{{item.slug}}" style="color: grey">{{ item.title }}</a></li>
   </ul>
 </nav>
 <div class="container">
