@@ -1,21 +1,40 @@
-<div class="grid-item">
-  <div class="cnt-box cnt-box-blog-side boxed">
-    <a href="#" class="img-box">
-      <div class="blog-date">
-        <span>30</span>
-        <span> сен 2021</span>
-      </div>
-      <img src="http://via.placeholder.com/800x600" alt="" style="max-width: 388px; width: 388px; margin-left: -88px; display: block;">
-    </a>
-    <div class="caption">
-      <h2>Rolling Stones and Stevie Wonder Mash Up Uptight and Satisfaction</h2>
-      <ul class="icon-list icon-list-horizontal">
-        <li><a href="#">Категория</a></li>
-      </ul>
+<!--<div class="grid-item">-->
+<!--  <div class="cnt-box cnt-box-blog-side boxed">-->
+<!--    <a href="#" class="img-box">-->
+<!--      <div class="blog-date">-->
+<!--        <span>30</span>-->
+<!--        <span> сен 2021</span>-->
+<!--      </div>-->
+<!--      <img src="{{post.photo}}" alt="" style="max-width: 388px; width: 388px; margin-left: -88px; display: block;">-->
+<!--    </a>-->
+<!--    <div class="caption">-->
+<!--      <h2>{{post.title}}</h2>-->
+<!--      <ul class="icon-list icon-list-horizontal">-->
+<!--        <li><a href="#">Категория</a></li>-->
+<!--      </ul>-->
+<!--      <p>-->
+<!--        <a [routerLink]="['/post', post.slug]">{{post.content | slice:0:150 }}</a>-->
+<!--      </p>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<mat-card class="post-card">
+  <img mat-card-image class="image-card" src="{{post.photo}}">
+  <div class="content-post-card">
+    <mat-card-header>
+<!--      <div mat-card-avatar class="example-header-image"></div>-->
+      <mat-card-title>{{post.title}}</mat-card-title>
+      <mat-card-subtitle>{{post.author}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
       <p>
-        <a [routerLink]="['/post', 7549357]">Lorem ipsum dolor sitamet consectetur adipisicing elito sed do eiusmod tempore.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugia.</a>
+        {{post.content | slice:0:150 }}
       </p>
-    </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button [routerLink]="['/post', post.slug]">Подробнее</button>
+    </mat-card-actions>
   </div>
-</div>
+</mat-card>

@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import {MainLayoutComponent} from "./shared/components/main-layout/main-layout.component";
 import {HomePageComponent} from "./home-page/home-page.component";
 import {PostPageComponent} from "./post-page/post-page.component";
-import {CreatePageComponent} from "./shared/components/create-page/create-page.component";
-import {EditPageComponent} from "./shared/components/edit-page/edit-page.component";
+import {CreatePageComponent} from "./admin/create-page/create-page.component";
+import {EditPageComponent} from "./admin/edit-page/edit-page.component";
 
 const routes: Routes = [
   {
@@ -16,6 +16,9 @@ const routes: Routes = [
       {path: 'post/:id/edit', component: EditPageComponent}
 
     ]
+  },
+  {
+    path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
   }
 ];
 

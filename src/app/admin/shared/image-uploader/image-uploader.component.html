@@ -1,0 +1,27 @@
+<label class="uploader" ondragover="return false;"
+    [class.loaded]="loaded"
+    [style.outlineColor]="dragging ? activeColor : baseColor"
+    (dragenter)="handleDragEnter()"
+    (dragleave)="handleDragLeave()"
+    (drop)="handleDrop($event)">
+
+  <div class="upload-text-file">
+    <p>Перетащите файл сюда или нажмите кнопку <a>"Обзор"</a> и виберете файл на компьютере</p>
+  </div>
+
+    <i class="icon" style="background-color: #2aa768"
+        [style.color]="dragging
+            ? ((imageSrc.length > 0) ? overlayColor : activeColor)
+            : ((imageSrc.length > 0) ? overlayColor : baseColor)"></i>
+
+    <img formControlName="cover"
+        [src]="imageSrc"
+        (load)="handleImageLoad()"
+        [class.loaded]="imageLoaded"/>
+
+
+
+    <input type="file" name="file" accept="image/*"
+        (change)="handleInputChange($event)">
+
+</label>
