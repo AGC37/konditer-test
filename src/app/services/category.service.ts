@@ -11,12 +11,7 @@ export class CategoryService {
   constructor() { }
 
   create(categoryPosts: Navigation){
-    this.categoryPosts.push({
-      title: categoryPosts.title,
-      slug: categoryPosts.slug,
-      description: categoryPosts.description,
-      mainCategory: categoryPosts.mainCategory,
-    })
+    this.categoryPosts.push({...categoryPosts})
   }
 
   delete(slug: string){

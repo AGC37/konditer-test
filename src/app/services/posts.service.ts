@@ -8,15 +8,19 @@ export class PostsService {
 
   posts = posts
 
+  // create(post: Post){
+  //   this.posts.push({
+  //     title: post.title,
+  //     slug: post.slug,
+  //     description: post.description,
+  //     content: post.content,
+  //     photo: post.photo,
+  //     author: post.author
+  //   })
+  // }
+
   create(post: Post){
-    this.posts.push({
-      title: post.title,
-      slug: post.slug,
-      description: post.description,
-      content: post.content,
-      photo: post.photo,
-      author: post.author
-    })
+    this.posts.push({...post})
   }
 
   delete(slug: string){
