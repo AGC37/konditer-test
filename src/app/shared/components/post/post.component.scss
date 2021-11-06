@@ -1,86 +1,25 @@
-.grid-item {
-    padding: 0;
-    margin: 0;
-    min-width: 0;
-    position: relative;
+.post-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  padding: 0;
 }
-.cnt-box.boxed {
-    border-radius: 5px;
-    transition: all .5s;
+
+.image-card {
+  object-fit: cover;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  vertical-align: top;
+  display: block;
+  margin: 0;
 }
-.cnt-box-blog-side > .img-box {
-    width: 60%;
+
+.content-post-card {
+  margin: 2rem;
 }
-.cnt-box-testimonials > img, .controls-out.controls-bottom-right .glide__arrow, .cnt-box.boxed, .cnt-pricing-table, .cnt-box-testimonials-bubble .thumb-bar img, .cnt-box-testimonials-bubble > p, .cnt-call, .step-item > span, .boxed-area, .section-block-full > .container > .row > .col:first-child, .tab-box .panel > img, .tab-box.tab-vertical .tab-nav li.active a, .timeline .panel, .section-map > .container, .form-search, .list-nav, .box-small > .img-box, .menu-big-box .menu-box, .shop-menu-cnt .shop-menu, .search-box-menu > input[type=text], .media-box-down.boxed, .media-box-down .caption, .table-full-border, .cnt-box-team > img {
-  border: 1px solid rgb(241, 240, 240);
-  box-shadow: 0 3px 20px -2px rgb(20 45 100 / 10%);
-}
-.cnt-box-blog-side {
-    display: flex;
-}
-.cnt-box {
-    position: relative;
-    overflow: hidden;
-}
-.cnt-box-blog-side .blog-date, .cnt-box-blog-top .blog-date {
-    position: absolute;
-    width: 80px;
-    color: #FFF;
-    z-index: 5;
-    text-align: center;
-}
-.blog-date {
-    height: 75px;
-    margin: 15px;
-    padding: 13px 0 0 0;
-    border-radius: 3px;
-    overflow: hidden;
-    font-weight: 700;
-    background-color: #333;
-}
-.img-box {
-    position: relative;
-    overflow: hidden;
-    display: block;
-    border-radius: 3px;
-    transition: all .5s;
-}
-.img-box:before {
-    content: "";
-    opacity: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    height: 100%;
-    background: #000;
-    position: absolute;
-    border-radius: 4px;
-    transition: all .5s;
-    transition-delay: .5s;
-}
-.section-color .cnt-box.boxed .caption, .section-color .cnt-box-top-icon.boxed > i {
-    background-color: #FFF;
-}
-.cnt-box.boxed .caption {
-    padding: 30px;
-}
-.cnt-box-blog-side .icon-list, .cnt-box-blog-top .icon-list {
-    margin-left: -30px;
-    padding-left: 27px;
-    padding-bottom: 10px;
-    margin-top: 15px;
-    border-bottom: 1px solid rgba(10, 70, 103, 0.18);
-}
-.cnt-box-blog-side .icon-list, .cnt-box-blog-top .icon-list {
-    margin-left: -30px;
-    padding-left: 27px;
-    padding-bottom: 10px;
-    margin-top: 15px;
-    border-bottom: 1px solid rgba(10, 70, 103, 0.18);
-}
-.cnt-box-blog-side .icon-list, .cnt-box-blog-top .icon-list {
-    font-size: 14px;
-    line-height: 30px;
-    margin-bottom: 15px;
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
 }

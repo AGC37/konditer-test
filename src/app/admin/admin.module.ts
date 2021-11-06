@@ -8,6 +8,9 @@ import { RecipePageComponent } from './recipe-page/recipe-page.component';
 import { NavigationAdminComponent } from './shared/navigation-admin/navigation-admin.component';
 import { SidenavListAdminComponent } from './shared/sidenav-list-admin/sidenav-list-admin.component';
 import {MaterialModule} from "../modules/material/material.module";
+import { QuillModule } from 'ngx-quill';
+import { DropZoneComponent } from './shared/drop-zone/drop-zone.component';
+import { ImageUploaderComponent } from './shared/image-uploader/image-uploader.component'
 
 @NgModule({
   declarations: [
@@ -16,11 +19,14 @@ import {MaterialModule} from "../modules/material/material.module";
     DashboardPageComponent,
     RecipePageComponent,
     NavigationAdminComponent,
-    SidenavListAdminComponent
+    SidenavListAdminComponent,
+    DropZoneComponent,
+    ImageUploaderComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
+    QuillModule.forRoot(),
     RouterModule.forChild([
       {
         path: '', component: AdminLayoutComponent, children: [
@@ -30,7 +36,11 @@ import {MaterialModule} from "../modules/material/material.module";
       }
     ]),
   ],
-  exports: [RouterModule],
+  exports: [
+    RouterModule,
+    QuillModule,
+    DropZoneComponent
+  ],
 
 })
 export class AdminModule {

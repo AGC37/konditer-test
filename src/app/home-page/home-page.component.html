@@ -1,8 +1,17 @@
-<div class="posts">
-  <div class="grid-list">
-    <app-post *ngFor="let post of posts" [post]="post">
+<!--<div class="posts">-->
+<!--  <div class="grid-list">-->
+<!--    <app-post *ngFor="let post of posts" [post]="post">-->
 
-    </app-post>
+<!--    </app-post>-->
+
+<!--  </div>-->
+<!--</div>-->
+
+<div class="content">
+<div fxLayout="row wrap" fxLayoutGap="16px grid" fxLayoutAlign="">
+  <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let post of posts">
+    <app-post [post]="post"></app-post>
 
   </div>
+</div>
 </div>
