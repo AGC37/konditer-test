@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { categoryPosts } from 'src/app/fake-db/navigation';
 
 @Component({
   selector: 'app-main-layout',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainLayoutComponent implements OnInit {
 
-  constructor() { }
+  navigation = categoryPosts
 
   ngOnInit(): void {
   }

@@ -12,6 +12,10 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSelectModule} from '@angular/material/select';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatMenuModule} from '@angular/material/menu';
 
 const Modules: any[] = [
   CommonModule,
@@ -27,6 +31,10 @@ const Modules: any[] = [
   MatSlideToggleModule,
   MatSelectModule,
   MatChipsModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatMenuModule
 ]
 
 @NgModule({

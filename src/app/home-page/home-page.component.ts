@@ -10,8 +10,6 @@ export class HomePageComponent implements OnInit {
 
   posts = posts;
 
-  constructor() { }
-
   ngOnInit(): void {
   }
 

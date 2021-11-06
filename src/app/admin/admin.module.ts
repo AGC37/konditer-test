@@ -9,8 +9,17 @@ import { NavigationAdminComponent } from './shared/navigation-admin/navigation-a
 import { SidenavListAdminComponent } from './shared/sidenav-list-admin/sidenav-list-admin.component';
 import {MaterialModule} from "../modules/material/material.module";
 import { QuillModule } from 'ngx-quill';
-import { DropZoneComponent } from './shared/drop-zone/drop-zone.component';
-import { ImageUploaderComponent } from './shared/image-uploader/image-uploader.component'
+import { ImageUploaderComponent } from './shared/image-uploader/image-uploader.component';
+import { CustomInputComponent } from './shared/custom-input/custom-input.component'
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { ListComponent } from './shared/list/list.component';
+import {AppModule} from "../app.module";
+import {PostComponent} from "../shared/components/post/post.component";
+import {CreatePageComponent} from "./create-page/create-page.component";
+import {EditPageComponent} from "./edit-page/edit-page.component";
+import { CreateCategoryComponent } from './create-category/create-category.component';
+import { ListCategoryComponent } from './shared/list-category/list-category.component';
+import { CategoryLayoutComponent } from './shared/category-layout/category-layout.component';
 
 @NgModule({
   declarations: [
@@ -20,26 +29,38 @@ import { ImageUploaderComponent } from './shared/image-uploader/image-uploader.c
     RecipePageComponent,
     NavigationAdminComponent,
     SidenavListAdminComponent,
-    DropZoneComponent,
-    ImageUploaderComponent
+    ImageUploaderComponent,
+    CustomInputComponent,
+    ListComponent,
+    CreateCategoryComponent,
+    ListCategoryComponent,
+    CategoryLayoutComponent,
   ],
   imports: [
     CommonModule,
     MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
     QuillModule.forRoot(),
     RouterModule.forChild([
       {
         path: '', component: AdminLayoutComponent, children: [
-          {path: '', redirectTo: '/admin/login', pathMatch: 'full'},
-          {path: 'login', component: LoginPageComponent}
+          // {path: '', redirectTo: '/admin/login', pathMatch: 'full'},
+          {path: 'login', component: LoginPageComponent},
+          {path: '', component: DashboardPageComponent},
+          {path: 'create', component: CreatePageComponent},
+          {path: 'post/:id/edit', component: EditPageComponent},
+          {path: 'create-category', component: CategoryLayoutComponent},
         ]
       }
     ]),
+    // AppModule,
   ],
   exports: [
     RouterModule,
     QuillModule,
-    DropZoneComponent
+    CustomInputComponent,
+    ImageUploaderComponent
   ],
 
 })

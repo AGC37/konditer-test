@@ -19,6 +19,7 @@ import { PreloaderComponent } from './shared/components/preloader/preloader.comp
 import { FlexLayoutModule } from '@angular/flex-layout'
 import {QuillModule} from "ngx-quill";
 import {AdminModule} from "./admin/admin.module";
+import {CKEditorModule} from "ckeditor4-angular";
 
 @NgModule({
   declarations: [
@@ -34,20 +35,22 @@ import {AdminModule} from "./admin/admin.module";
     NavigationComponent,
     PreloaderComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    MaterialModule,
-    FlexLayoutModule,
-    QuillModule,
-    AdminModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        MaterialModule,
+        FlexLayoutModule,
+        QuillModule,
+        AdminModule,
+        CKEditorModule
+    ],
   providers: [],
   exports: [
-    PreloaderComponent
+    PreloaderComponent,
+    PostComponent,
   ],
   bootstrap: [AppComponent]
 })
