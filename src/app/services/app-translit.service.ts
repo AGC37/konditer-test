@@ -7,7 +7,8 @@ export class AppTranslitService {
 
   inputValue = ''
   inputValueMedium = ''
-  outputValue = ''
+  outputValue = []
+  outputString = ''
 
 
   dic = new Map([
@@ -91,17 +92,20 @@ export class AppTranslitService {
       for (var i = 0; i < this.inputValueMedium.length; i++) {
         var outputSign = this.inputValueMedium[i]
         if (this.dic.has(outputSign) === true) {
-          this.outputValue += this.dic.get(outputSign)
+          this.outputValue.push(this.dic.get(outputSign))
         } else {
-          this.outputValue += outputSign
+          this.outputValue.push(outputSign)
         }
       }
     } else {
-      this.outputValue = this.outputValue.substring(0, this.outputValue.length-1)
+      // this.outputValue = this.outputValue.substring(0, this.outputValue.length-1)
+      this.outputValue = this.outputValue.slice(0, -1)
     }
+    this.outputString = this.outputValue.join('')
     // console.log('Строка --- ' + this.inputValueMedium)
     // console.log('Значение --- ' + event.data)
-    // console.log('Транслит --- ' + this.outputValue)
+    console.log('Транслит --- ' + this.outputValue)
+    console.log('Строка --- ' + this.outputString)
     // console.log('Удаление --- ' + this.outputValue.substring(0, this.outputValue.length-1))
   }
 

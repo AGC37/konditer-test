@@ -3,6 +3,7 @@ import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 import { MatTableDataSource } from '@angular/material/table';
 import {categoryPosts, Navigation} from "../../../fake-db/navigation";
+import {CategoryService} from "../../../services/category.service";
 
 @Component({
   selector: 'app-list-category',
@@ -11,13 +12,14 @@ import {categoryPosts, Navigation} from "../../../fake-db/navigation";
 })
 export class ListCategoryComponent implements AfterViewInit {
 
-  displayedColumns: string[] = ['title', 'description', 'slug', 'items'];
+  displayedColumns: string[] = ['title', 'description', 'slug', 'items', 'buttons'];
   dataSource: MatTableDataSource<Navigation>;
+  editMode: boolean = false;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor() {
+  constructor(private categoryService: CategoryService) {
      this.dataSource = new MatTableDataSource(categoryPosts);
   }
 
@@ -33,6 +35,14 @@ export class ListCategoryComponent implements AfterViewInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  delete(slug:string){
+    this.categoryService.delete(slug)
+  }
+
+  edit(slug: string) {
+
   }
 }
 

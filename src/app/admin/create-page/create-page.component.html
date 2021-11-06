@@ -23,7 +23,7 @@
         <mat-slide-toggle style="margin-bottom: 0.5rem">Опубликовать</mat-slide-toggle>
         <mat-form-field appearance="outline" class="field-form">
           <mat-label>URL</mat-label>
-          <input matInput value="{{appTranslitService.outputValue}}" formControlName="slug">
+          <input matInput  formControlName="slug" [(ngModel)]="appTranslitService.outputString">
           <mat-hint>Введите название рецепта</mat-hint>
         </mat-form-field>
         <mat-form-field appearance="outline" class="field-form">

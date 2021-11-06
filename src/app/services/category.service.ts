@@ -18,4 +18,36 @@ export class CategoryService {
       mainCategory: categoryPosts.mainCategory,
     })
   }
+
+  delete(slug: string){
+    if (!window.confirm('Точно удалить?')){
+      return
+    }
+    var id = this.categoryPosts.find(s => s.slug === slug)
+    var index = categoryPosts.indexOf(id)
+
+    if (index > -1){
+      categoryPosts.splice(index, 1,)
+    }
+  }
+
+  getBySlug(slug: string){
+    var id = this.categoryPosts.find(s => s.slug === slug)
+    var index = categoryPosts.indexOf(id)
+
+    if (index > -1){
+      var tmp = this.categoryPosts[index]
+    }
+    return tmp
+  }
+
+  updatePost(category: Navigation){
+    let slug = category.slug
+    var id = this.categoryPosts.find(s => s.slug === slug)
+    var index = categoryPosts.indexOf(id)
+
+    if (index > -1){
+      categoryPosts.splice(index, 1, category)
+    }
+  }
 }
