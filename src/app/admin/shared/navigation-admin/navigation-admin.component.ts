@@ -11,8 +11,6 @@ export class NavigationAdminComponent implements OnInit {
 
   navigationAdmin = itemsliks;
 
-  constructor() { }
-
   ngOnInit(): void {
   }
 

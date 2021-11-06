@@ -98,14 +98,13 @@ export class AppTranslitService {
         }
       }
     } else {
-      // this.outputValue = this.outputValue.substring(0, this.outputValue.length-1)
       this.outputValue = this.outputValue.slice(0, -1)
     }
     this.outputString = this.outputValue.join('')
     // console.log('Строка --- ' + this.inputValueMedium)
     // console.log('Значение --- ' + event.data)
-    console.log('Транслит --- ' + this.outputValue)
-    console.log('Строка --- ' + this.outputString)
+    // console.log('Транслит --- ' + this.outputValue)
+    // console.log('Строка --- ' + this.outputString)
     // console.log('Удаление --- ' + this.outputValue.substring(0, this.outputValue.length-1))
   }
 

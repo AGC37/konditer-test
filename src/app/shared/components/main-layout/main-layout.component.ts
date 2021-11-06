@@ -10,8 +10,6 @@ export class MainLayoutComponent implements OnInit {
 
   navigation = categoryPosts
 
-  constructor() { }
-
   ngOnInit(): void {
   }
 
